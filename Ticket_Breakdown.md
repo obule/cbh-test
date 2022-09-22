@@ -26,6 +26,10 @@ Effort estimate: 8 hours <br />
 
 We have a request from our client to be able to connect agents by their custom id instead of the internally generated id from our DB. The problem might have stemmed from the fact that they already have a system to internally identify their agents and the DB id creates confusion for them.
 
+#### Goal
+
+The goal of this ticket is to add a database layer that allows facility to add readable id for their agents
+
 #### Requirement
 
 - Create a table `facility_agent_identifier` that has the following columns: `agentId`, `facilityId` & `facilityAgentId`
@@ -86,6 +90,10 @@ Depends on: Ticket 1
 
 We already have the repository of the facility agent indentifier in ticket 1. The goal of this ticket is to extend the existing methods to handle the client's new request as stated in ticket 1.
 
+#### Goal
+
+The goal of this ticket is to update existing functions to be able to handle the new agentId inputs from the facility.
+
 #### Requirement
 
 - Update `getShiftsByFacility` add an optional `facilityAgentIds` parameter to the method. We are making this parameter optional because of backwards compatibility.
@@ -118,9 +126,15 @@ We already have the repository of the facility agent indentifier in ticket 1. Th
 
 Effort estimate: 4 hours <br />
 
+Depends on: Ticket 2
+
 #### Overview / Problem Statement
 
 We want to expose a new endpoint to support saving facility agent indentifier requested by the client in task 1. Also we want to update the api to generate ticket to be able to accept an optional facilityAgentIds so that they can only print report for only the supplied agents
+
+#### Goal
+
+The goal of this ticket is to add endpoints to support creating of agents with readble ids. Also we are updating the generate report endpoint to accept optional agentIds
 
 #### Requirement
 
